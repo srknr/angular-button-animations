@@ -4,7 +4,8 @@ import { trigger, transition, style, useAnimation } from '@angular/animations';
 enum Delays {
   Fast = '0ms',
   Second = '200ms',
-  Third = '400ms',
+  Third =  '400ms',
+  Fourth = '300ms',
 };
 
 @Component({
@@ -47,6 +48,19 @@ enum Delays {
       transition(':leave', [
         useAnimation(slideOutLeftAnimation, {
           params: {  delay: Delays.Fast }
+        })
+      ])
+    ]),
+    /** マイリストボタン */
+    trigger('myList', [
+      transition(':enter', [
+        useAnimation(slideInLeftAnimation, {
+          params: { delay: Delays.Fourth }
+        })
+      ]),
+      transition(':leave', [
+        useAnimation(slideOutLeftAnimation, {
+          params: { delay: Delays.Fast }
         })
       ])
     ])
